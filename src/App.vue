@@ -1,26 +1,25 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <HeaderTemplate />
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import HeaderTemplate from "./components/HeaderTemplate.vue";
 
 export default {
   name: "App",
   components: {
-    HelloWorld,
+    HeaderTemplate,
+  },
+  created() {
+    fetch("http://localhost:4730/todos")
+      .then((response) => response.json())
+      .then((todos) => {
+        this.todoList = todos;
+      });
   },
 };
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import url("./assets/reset.css");
 </style>
