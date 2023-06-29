@@ -1,14 +1,14 @@
 <template>
-  <HeaderTemplate />
+  <TodoList />
 </template>
 
 <script>
-import HeaderTemplate from "./components/HeaderTemplate.vue";
+import TodoList from "./components/TodoList.vue";
 
 export default {
   name: "App",
   components: {
-    HeaderTemplate,
+    TodoList,
   },
   created() {
     fetch("http://localhost:4730/todos")
