@@ -64,6 +64,7 @@ input[type="email"],
 input[type="password"],
 input[type="search"] {
   -webkit-appearance: none;
+  appearance: none;
 } /*--- for Safari (add/remove types as needed) ---*/
 button {
   line-height: inherit;

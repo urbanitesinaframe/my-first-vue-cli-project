@@ -1,25 +1,11 @@
 <template>
-  <TodoList />
+  <h1>Start</h1>
 </template>
 
 <script>
-import TodoList from "./components/TodoList.vue";
-
 export default {
-  name: "App",
-  components: {
-    TodoList,
-  },
-  created() {
-    fetch("http://localhost:4730/todos")
-      .then((response) => response.json())
-      .then((todos) => {
-        this.todoList = todos;
-      });
-  },
+  components: {},
 };
 </script>
 
-<style>
-@import url("./assets/reset.css");
-</style>
+<style></style>
