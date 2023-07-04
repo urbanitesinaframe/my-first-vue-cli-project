@@ -4,7 +4,14 @@
       <p class="header__task-name">📚📖👀 Tech Bookstore</p>
       <div class="header__bootcamp-info-wrapper">
         <nav class="header__nav">
-          <a href="#" class="header__nav-item header__nav-item--active">Home</a>
+          <router-link class="header__nav-item header__nav-item--active" to="/"
+            >Home</router-link
+          >
+          <router-link
+            class="header__nav-item header__nav-item--active"
+            to="/books"
+            >Books</router-link
+          >
         </nav>
         <a href="https://www.coding-bootcamps.eu/" class="header__bootcamp-link"
           >coding-bootcamps.eu</a
@@ -57,7 +64,7 @@ export default {};
   padding: 10px 10px;
 }
 
-.header__nav-item--active {
+.router-link-exact-active {
   color: #fff;
   background-color: var(--primary-dark);
 }

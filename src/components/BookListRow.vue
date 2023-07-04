@@ -1,13 +1,24 @@
 <template>
   <tr class="table-item__table-row">
-    <td>{{ title }}</td>
+    <td v-if="title">
+      <router-link :to="`/books/${isbn}`">{{ title }}</router-link>
+    </td>
+    <td v-else>-</td>
     <td>{{ isbn }}</td>
-    <td><BaseButton text="Add Bookmark" variant="secondary" /></td>
+    <td>
+      <BaseButton :text="bookMarkedButtonText" @buttonClicked="buttonClicked" />
+    </td>
   </tr>
 </template>
 <script>
 import BaseButton from "@/components/BaseButton.vue";
 export default {
+  emits: ["buttonClicked"],
+  methods: {
+    buttonClicked() {
+      this.$emit("buttonClicked", this.isbn);
+    },
+  },
   components: {
     BaseButton,
   },
@@ -17,6 +28,14 @@ export default {
     },
     isbn: {
       type: String,
+    },
+    isBookmarked: {
+      type: Boolean,
+    },
+  },
+  computed: {
+    bookMarkedButtonText() {
+      return this.isBookmarked ? "Remove Bookmark" : "Add Bookmark";
     },
   },
 };
